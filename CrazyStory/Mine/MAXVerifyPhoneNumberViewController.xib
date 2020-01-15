@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MAXVerifyPhoneNumberViewController">
+            <connections>
+                <outlet property="getVerificationCodeBtn" destination="KRn-2i-S8M" id="WwW-tN-eWP"/>
+                <outlet property="inputPhoneNoOrEmailTextField" destination="m2D-hx-0bC" id="R7p-RK-Q4b"/>
+                <outlet property="verificationCodeTextField" destination="GME-34-w8Q" id="rYJ-8V-XQy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入注册的手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m2D-hx-0bC">
+                    <rect key="frame" x="10" y="25" width="355" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaW-0O-9mN">
+                    <rect key="frame" x="10" y="147" width="355" height="30"/>
+                    <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="0.34939533389999999" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="确定">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="confirm:" destination="-1" eventType="touchUpInside" id="GMx-Bm-ND4"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GME-34-w8Q">
+                    <rect key="frame" x="10" y="92" width="215" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录或找回密码时会使用此号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvj-iw-7S7">
+                    <rect key="frame" x="10" y="65" width="200" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRn-2i-S8M">
+                    <rect key="frame" x="235" y="92" width="77" height="30"/>
+                    <state key="normal" title="获取验证码"/>
+                    <connections>
+                        <action selector="getVerificationCode:" destination="-1" eventType="touchUpInside" id="dd1-wf-bIk"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="GME-34-w8Q" firstAttribute="top" secondItem="Rvj-iw-7S7" secondAttribute="bottom" constant="10" id="1LH-8u-8CU"/>
+                <constraint firstAttribute="trailing" secondItem="eaW-0O-9mN" secondAttribute="trailing" constant="10" id="68d-mE-dGU"/>
+                <constraint firstAttribute="trailing" secondItem="m2D-hx-0bC" secondAttribute="trailing" constant="10" id="J63-zz-jwH"/>
+                <constraint firstItem="Rvj-iw-7S7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="OJE-ib-Pme"/>
+                <constraint firstItem="eaW-0O-9mN" firstAttribute="top" secondItem="GME-34-w8Q" secondAttribute="bottom" constant="25" id="VfS-sf-BZJ"/>
+                <constraint firstItem="m2D-hx-0bC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="YMb-jS-XMK"/>
+                <constraint firstAttribute="trailing" secondItem="GME-34-w8Q" secondAttribute="trailing" constant="150" id="YvR-Nq-iOZ"/>
+                <constraint firstItem="GME-34-w8Q" firstAttribute="top" secondItem="KRn-2i-S8M" secondAttribute="top" id="a4U-3q-Ose"/>
+                <constraint firstItem="KRn-2i-S8M" firstAttribute="leading" secondItem="GME-34-w8Q" secondAttribute="trailing" constant="10" id="dau-Au-FZ5"/>
+                <constraint firstItem="Rvj-iw-7S7" firstAttribute="top" secondItem="m2D-hx-0bC" secondAttribute="bottom" constant="10" id="fDa-lQ-MQe"/>
+                <constraint firstItem="m2D-hx-0bC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="hJG-tl-7d4"/>
+                <constraint firstItem="GME-34-w8Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="htd-m1-xUf"/>
+                <constraint firstItem="eaW-0O-9mN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="iV0-fR-sGj"/>
+            </constraints>
+            <point key="canvasLocation" x="-231" y="-57"/>
+        </view>
+    </objects>
+</document>

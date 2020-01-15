@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MAXSetIntroductionViewController">
+            <connections>
+                <outlet property="inputIntroductionTextView" destination="4rM-a6-UBN" id="792-F4-ikQ"/>
+                <outlet property="textViewPlaceholdLabel" destination="4Tx-Ov-VOh" id="qkA-YK-l6q"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4rM-a6-UBN">
+                    <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请勿添加色情、淫秽、政治等违反国家法律的简介。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tx-Ov-VOh">
+                    <rect key="frame" x="5" y="25" width="352" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="4rM-a6-UBN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="04A-ZI-COl"/>
+                <constraint firstItem="4Tx-Ov-VOh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="5EY-6u-34H"/>
+                <constraint firstItem="4rM-a6-UBN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="Rxh-Ha-xYA"/>
+                <constraint firstAttribute="bottom" secondItem="4rM-a6-UBN" secondAttribute="bottom" id="hws-SX-aka"/>
+                <constraint firstItem="4Tx-Ov-VOh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="n6j-4g-XgI"/>
+                <constraint firstAttribute="trailing" secondItem="4rM-a6-UBN" secondAttribute="trailing" id="q1r-bj-LSr"/>
+            </constraints>
+            <point key="canvasLocation" x="-517" y="12"/>
+        </view>
+    </objects>
+</document>

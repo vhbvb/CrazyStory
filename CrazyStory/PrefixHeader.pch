@@ -1,0 +1,135 @@
+//
+//  PrefixHeader.pch
+//  CrazyStory
+//
+//  Created by youzu_Max on 2017/1/23.
+//  Copyright © 2017年 youzu. All rights reserved.
+//
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIView+QCExtention.h"
+#import "AppDelegate.h"
+#import "NSString+MAXCommon.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "SVProgressHUD.h"
+#import <Hyphenate/Hyphenate.h>
+
+
+static NSString * const kStoryCellReuseIdentifier = @"StoriesTableViewCellReuseIdentifier" ;
+static NSString * const kStoryContentCellReuseIdentifier = @"StoryContentCellReuseIdentifier" ;
+static NSString * const kContentsCollectionViewCellReuseIdentifier = @"ContentsCollectionViewCellReuseIdentifier";
+
+/* * * * LeanCloud * * * */
+// 用户表新增字段
+static NSString * const kUsersListClass              = @"_User" ;
+static NSString * const kUserPropertyInstroduction   = @"userInstroduction" ;
+static NSString * const kUserPropertyInkCount        = @"userInkCount" ;
+static NSString * const kUserPropertyHeadImage       = @"headImage" ;
+static NSString * const kUserPropertyCircleHeadImage = @"circleHeadImage";
+//故事列表
+static NSString * const kStoriesListClass            = @"storiesList" ;
+static NSString * const kStoryPropertyOwner          = @"owner" ;
+static NSString * const kStoryPropertyTitle          = @"title" ;
+static NSString * const kStoryPropertyInstroduction  = @"instroduction" ;
+static NSString * const kStoryPropertyLikeCount      = @"like" ;
+static NSString * const kStoryPropertySeeCount       = @"see" ;
+static NSString * const kStoryPropertyShareCount     = @"share";
+static NSString * const kStoryPropertyOwnerName      = @"ownerName" ;
+//故事内容表
+static NSString * const kContentsListClass           = @"contentsList" ;
+static NSString * const kContentPropertyContent      = @"contentText" ;
+static NSString * const kContentPropertySuperContent = @"superContent" ;
+static NSString * const kContentPropertyOwner        = @"contentOwner" ;
+static NSString * const kContentPropertyStory        = @"story" ;
+
+//故事和用户关系表
+static NSString * const kRelationsListClass          = @"RelationsList" ;
+static NSString * const kRelationPropertyFlag        = @"flag" ;
+static NSString * const kRelationPropertyFlagLike    = @"like" ;//用户喜欢故事查询标示
+static NSString * const KRelationPropertyFlagShare   = @"share";//分享标示。
+static NSString * const kRelationPropertyUser        = @"user" ;
+static NSString * const kRelationPropertyStory       = @"story" ;
+
+static NSString * const kQueryKeyCreatedAt           = @"createdAt" ;
+
+// EM
+static const CGFloat kDefaultPlaySoundInterval = 3.0;
+
+#define AppleID @"1213286313"
+
+#define isLogined               ((AppDelegate *)([UIApplication sharedApplication].delegate)).Logined
+#define isEMLogined             ((AppDelegate *)([UIApplication sharedApplication].delegate)).EMLogined
+
+#define kSinaAppkey             @"1274402971"
+#define kSinaAppSecret          @"7a902bf16a2044808d67d5f6c534fb9f"
+
+#define kLeanCloudAppID         @"xKsemIfjea6opU68AYKfW0Pt-gzGzoHsz"
+#define kLeanCloudAppKey        @"9t6V7RBhgyxGP5Q7sVDjEzbw"
+#define kLeanCloudMasterKey     @"7YH6yVoCFEqIAV0Rg93iTYMf"
+
+#define kSMSSDKAppKey           @"1b95659ff6dfe"
+#define kSMSSDKAppSecret        @"1c0346757da6ac67a814c322ac98d3ce"
+
+#define kShareSDKAppKey         @"1b95659ff6dfe"
+#define kShareSDKAppSecret      @"1c0346757da6ac67a814c322ac98d3ce"
+
+#define kSinaAppkey             @"1274402971"
+#define kSinaAppSecret          @"7a902bf16a2044808d67d5f6c534fb9f"
+
+#define kWeChatAppID            @"wx71a6cf328444ffd2"
+#define kWeChatAppSecret        @"05920931927206068bd3a308e2ad26ff"
+
+#define kWeChatPublicAppID      @"wx4868b35061f87885"
+#define kWeChatPublicAppSecret  @"64020361b8ec4c99936c0e3999a9f249"
+
+#define kQQAppID                @"1105970732"
+#define kQQAppSecret            @"KFMtdnTbbpWWAwZO"
+
+#define kEaseMobAppkey          @"1121170308115958#crazystory"
+#define kCertName               @"XYCarzy"
+
+
+#define MOBAlert(_S_, ...)     UIAlertController * vc = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:(_S_), ##__VA_ARGS__] preferredStyle:UIAlertControllerStyleAlert];\
+UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];\
+[vc addAction:okAction];\
+[self presentViewController:vc animated:YES completion:nil];
+
+#ifdef DEBUG
+#define MAXLog(s, ...) NSLog(@"\n\n----------- BEGIN ---------------\n %s[line:%d] \n %@ \n--- -------- END -----------------\n^MAXLog^\n ", __FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__])
+
+#define ReceiveDataLog                {NSMutableString * desc = [NSMutableString stringWithFormat:@"\n\n----------- BEGIN ---------------\n %s[line:%d]",__func__,__LINE__];\
+for (NSInteger i=0; i<objects.count; i++)\
+{\
+    [desc appendString:[NSString stringWithFormat:@"\n%@\n",[objects[i] description]]];\
+}\
+[desc appendString:[NSString stringWithFormat:@"\nerror :%@\n------------ END ------------------\n^LogData^ \n ",error]];\
+NSLog(@"%@",desc);\
+}
+
+
+#else
+#define MAXLog(s, ...)
+#define ReceiveDataLog
+#endif
+
+#define MAXAlert(_S_, ...)     [[[UIAlertView alloc] initWithTitle:@"提示" message:[NSString stringWithFormat:(_S_), ##__VA_ARGS__] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil] show]
+
+#define kScreenWidth ([UIScreen mainScreen].bounds.size.width)
+
+#define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
+
+#define NavigationBarOffsetValue ([UIApplication sharedApplication].statusBarFrame.size.height + self.navigationController.navigationBar.frame.size.height)
+
+#define TabbarHeight (self.navigationController.tabBarController.tabBar.frame.size.height)
+
+#define NavigationBarHeight (self.navigationController.navigationBar.frame.size.height)
+
+#define RandomColor [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:1]
+
+#endif /* PrefixHeader_pch */
+#endif
